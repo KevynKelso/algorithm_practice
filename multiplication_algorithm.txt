@@ -1,0 +1,29 @@
+Kevyn Kelso
+CS 4720 002
+Multiplication Algorithm Homework
+
+Assumptions:
+- n and m will be referenced as the numbers being multiplied
+- m is the bigger number
+
+Steps:
+1. Arrange the numbers in rows such that m is on the top row and n is on the bottom row.
+2. Align the number's colunms (each digit) such that the right most digit of m
+lines up with the right most digit of n (think justify right)
+3. Starting with the right most column, for each digit in n (call it x) keep track of iterations in i (starting at 0):
+    3b. Starting with the right most column, for each digit in m (call it y):
+        3b1. perform x*y+(number above y if written) (product = z)
+        3b2. if z >= 10 and y is not the left most digit of m:
+            3b2a. write down the left most digit of z above the number to the left of y
+            3b2b. set z = right most digit of z
+        3b3. write down z in a new row at the bottom under x and y but indented i columns
+
+4. for each digit written down under m and n starting from the right most column and going column by column:
+    4a. add all digits in that column (rows with nothing written in that column count as zero for that row) (call it z)
+    4b. if z >= 10 and you are not adding the left most column
+        4b1. add 1 above the next column to the left
+        4b2. z = right most digit of z
+    4c. write down z in a new row in the column being added
+
+5. Bottom row is the answer
+
